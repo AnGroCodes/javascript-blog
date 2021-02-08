@@ -1,8 +1,8 @@
 'use strict';
 
 const optArticleSelector = '.post',
-optTitleSelector = '.post-title',
-optTitleListSelector = '.titles';
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
 
 function titleClickHandler(event){
   event.preventDefault();
