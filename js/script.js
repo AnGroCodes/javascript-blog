@@ -3,7 +3,8 @@
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
-  optArticleTagsSelector = '.post-tags .list';
+  optArticleTagsSelector = '.post-tags .list',
+  optArticleAuthorSelector = '.post-author';
 
 function titleClickHandler(event){
   event.preventDefault();
@@ -65,7 +66,7 @@ generateTitleLinks();
 function generateTags(){
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
-
+  
   /* START LOOP: for every article: */
   for(let article of articles){
 
@@ -135,9 +136,9 @@ function tagClickHandler(event){
   }
   /* find all tag links with "href" attribute equal to the "href" constant */
   const foundTagLinks = document.querySelectorAll('a[href="' + href + '"]');
-
+  
   /* START LOOP: for each found tag link */
-  for(foundTagLink of foundTagLinks){
+  for(let foundTagLink of foundTagLinks){
 
     /* add class active */
     clickedElement.classList.add('active');
@@ -152,6 +153,7 @@ function addClickListenersToTags(){
   /* find all links to tags */
   const linkTags = document.querySelectorAll('a[href^="#tag-"]');
 
+
   /* START LOOP: for each link */
   for(let linkTag of linkTags){
     /* add tagClickHandler as event listener for that link */
@@ -161,4 +163,42 @@ function addClickListenersToTags(){
 }
 
 addClickListenersToTags();
+
+
+
+
+
+
+
+
+
+function generateAuthors(){
+  /* find all articles */
+  const articles = document.querySelectorAll(optArticleSelector);
+
+  /* START LOOP: for every article: */
+  for(let article of articles){
+
+    /* find tags wrapper */
+    const authorsWrapper = article.querySelector(optArticleAuthorSelector);
+    
+    /* make html variable with empty string */
+    let html = '';
+
+    /* get tags from data-tags attribute */
+    const articleAuthor = article.getAttribute('data-author');
+    
+    const linkHTML = '<a href="#">' + articleAuthor + '</a>';
+    /* insert HTML of all the links into the tags wrapper */
+    html = html + linkHTML;
+    
+    /* insert HTML of all the links into the tags wrapper */
+    authorsWrapper.innerHTML = html;
+ 
+  /* END LOOP: for every article: */
+  }
+}
+
+generateAuthors();
+
 
