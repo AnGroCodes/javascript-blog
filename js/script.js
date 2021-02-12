@@ -103,11 +103,6 @@ function generateTags(){
 
 generateTags();
 
-
-
-
-
-
 function tagClickHandler(event){
   /* prevent default action for this event */
   event.preventDefault();
@@ -136,7 +131,7 @@ function tagClickHandler(event){
   }
   /* find all tag links with "href" attribute equal to the "href" constant */
   const foundTagLinks = document.querySelectorAll('a[href="' + href + '"]');
-  
+  console.log(foundTagLinks);
   /* START LOOP: for each found tag link */
   for(let foundTagLink of foundTagLinks){
 
@@ -163,14 +158,6 @@ function addClickListenersToTags(){
 }
 
 addClickListenersToTags();
-
-
-
-
-
-
-
-
 
 function generateAuthors(){
   /* find all articles */
@@ -200,5 +187,15 @@ function generateAuthors(){
 }
 
 generateAuthors();
+
+
+
+
+
+
+
+
+
+
 
 
