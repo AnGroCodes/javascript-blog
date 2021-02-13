@@ -64,21 +64,23 @@ function generateTitleLinks(customSelector = ''){
 
 generateTitleLinks();
 
-function calculateTagsParams(tags){
+function calculateTagsParams(){
 
-  const params = {max, min}
+  const params = {max: 0, min: 9999};
 
   for(let tag in tags){
     console.log(tag + ' is used ' + tags[tag] + ' times');
     if(tags[tag] > params.max){
       params.max = tags[tag];
-      } else if (tags[tag] < params.min){
+      } 
+      if (tags[tag] < params.min){
         params.min = tags[tag];
       }
     }
-  }  
-  return params;
-}
+    return params;
+  }   
+
+
 
 function generateTags(){
 
