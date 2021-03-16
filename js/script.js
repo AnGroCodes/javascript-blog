@@ -129,10 +129,6 @@ function calculateAuthorsParams(authors){
   }
   return params;
 }
-function calculateAuthorClass(count, params){
-  const classNumber = Math.floor( ( (count - params.min) / (params.max - params.min) ) * optCloudClassCount + 1 );
-  return optCloudClassPrefix + classNumber;
-}
 function generateAuthors(){
   let allAuthors = {};
   const articles = document.querySelectorAll(optArticleSelector);
